@@ -1,0 +1,205 @@
+<!DOCTYPE html> 
+<html> 
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
+ 
+THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+  
+Author(s):
+Viviana C. Martinez
+ 
+Further Information:
+http://cns.utexas.edu/fri
+ 
+Research Educator:
+Timothy Riedel
+triedel@utexas.edu
+ 
+Brief Description of Goal of Code:
+The following web app aims to determine if peope can tell the difference in colors in terms of their RGB values based on simply looking at them.
+ 
+Known Issues:
+None detected.
+-->
+
+   <head> 
+      <title>Color Quiz</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      
+      
+      <script>
+      	
+      	var yes_count = 0; // Counts yes answers
+      	var no_count = 0; // Counts no answers
+      	var correct_percent = 0; // % Correct
+      	var incorrect_percent = 0; // % Incorrect
+      	
+      	function yesAdd()
+      	{
+      		yes_count = yes_count + 1; // Adds yes count variable
+      	}
+      	//yes_count function
+      	
+      	
+      	function noAdd()
+      	{
+      		no_count = no_count + 1; // Adds no count variable
+      	}
+      	//no_count function
+      	
+      	
+      	function percentage()
+      	{
+      		correct_percent = (yes_count/4) *100; // Finds percentage of yes answers
+      		incorrect_percent = (no_count/4) *100; // Finds percentage of no answers
+      		
+      		document.getElementById("results").innerHTML = "Percent of answers that are correct = " + correct_percent + "%<br> Percent of incorrect answers = " + incorrect_percent + "%"; // Final results
+      		
+      	}
+  
+      </script>
+      
+      <style>
+      	img, object {
+      		max-height:90%;
+      		max-width:90%;
+      	}
+      
+      </style>
+      
+   </head> 
+   
+   <body>
+
+     <div data-role="page" id="homepage">
+	<div data-role="header">
+		<h1>Color Quiz</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>This web app will consist of a series of color questions that may determine whether or not the user can tell the difference between shades of color.</p>
+		<a href="#pageone" data-role="button">Let's Begin!</a> 
+    //Will put a picture here    <img src="" align="middle">
+		
+	</div><!-- /content -->
+
+
+	<div data-role="footer" data-position="fixed">
+		<p>Home Page</p>
+	</div><!-- /footer -->
+     </div><!-- /page -->
+     
+     
+     <div data-role="page" id="pageone">
+     	<div data-role="header">
+     		<h1>Question 1</h1>
+	</div><!-- /header -->
+	
+	<div data-role="content">
+		<p>Red<br> Which color is different? </p>
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Barn_Red_429997_i0.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Red_429986_i0.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Red_429986_i0.png" align="middle">
+
+		<a href="#pagetwo" onclick="noAdd();" data-role="button">Left</a> 
+        <!-- If this button is clicked, add to the no count and go to the next page -->
+        <a href="#pagetwo" onclick="yesAdd();" data-role="button"> Middle</a> <!-- If this button is clicked, add to the yes count and go to the next page -->
+        <a href="#pagetwo" onclick="noAdd();" data-role="button">Right</a> <!-- If this button is clicked, add to the no count and go to the next page -->
+	</div><!--/content-->
+	
+	<div data-role="footer" data-position="fixed">
+		<p>For more information, visit 
+<a href="http://colors.findthedata.com/d/s/Red">This comprehensive color database.</a>
+</p>
+	</div><!-- /footer -->
+     </div><!-- /page -->
+     
+          
+     <div data-role="page" id="pagetwo">
+     	<div data-role="header">
+     		<h1>Question 2</h1>
+	</div><!-- /header -->
+	
+	<div data-role="content">
+		<p>Orange<br> Which color is different? </p>
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Safety_Orange_Blaze_Orange_429976_i0.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Pumpkin_429975_i0.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Pumpkin_429975_i0.png" align="middle">
+
+		<a href="#pagethree" onclick="yesAdd();" data-role="button">Left</a> 
+        <!-- If this button is clicked, add to the yes count and go to the next page -->
+        <a href="#pagethree" onclick="noAdd();" data-role="button"> Middle</a> <!-- If this button is clicked, add to the no count and go to the next page -->
+        <a href="#pagethree" onclick="noAdd();" data-role="button">Right</a> <!-- If this button is clicked, add to the no count and go to the next page -->
+	</div><!--/content-->
+	
+	<div data-role="footer" data-position="fixed">
+		<p>Question 2</p>
+	</div><!-- /footer -->
+     </div><!-- /page -->
+     
+     <div data-role="page" id="pagethree">
+     	<div data-role="header">
+     		<h1>Question 3</h1>
+	</div><!-- /header -->
+	
+	<div data-role="content">
+		<p>Yellow<br> Which color is different? </p>
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Banana_Yellow_429852_i0.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Yellow_Pantone_1395454.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Yellow_Pantone_1395454.png" align="middle">
+
+		<a href="#pagefour" onclick="yesAdd();" data-role="button">Left</a> 
+        <!-- If this button is clicked, add to the yes count and go to the next page -->
+        <a href="#pagefour" onclick="noAdd();" data-role="button"> Middle</a> <!-- If this button is clicked, add to the no count and go to the next page -->
+        <a href="#pagefour" onclick="noAdd();" data-role="button">Right</a> <!-- If this button is clicked, add to the no count and go to the next page -->
+	</div><!--/content-->
+	
+	<div data-role="footer" data-position="fixed">
+		<p>Question 3</p>
+	</div><!-- /footer -->
+     </div><!-- /page -->
+	
+	
+      <div data-role="page" id="pagefour">
+     	<div data-role="header">
+     		<h1>Question 4</h1>
+	</div><!-- /header -->
+	
+	<div data-role="content">
+		<p>Green<br> Which color is different? </p>
+		<img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Dark_Olive_Green_429735_i0.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Dark_Olive_Green_429735_i0.png" align="middle">
+        <img src="https://s.graphiq.com/sites/default/files/2307/media/images/t2/Apple_Green_429743_i0.png" align="middle">
+
+		<a href="#pagefive" onclick="noAdd();" data-role="button">Left</a> 
+        <!-- If this button is clicked, add to the yes count and go to the next page -->
+        <a href="#pagefive" onclick="noAdd();" data-role="button"> Middle</a> <!-- If this button is clicked, add to the no count and go to the next page -->
+        <a href="#pagefive" onclick="yesAdd();" data-role="button">Right</a> <!-- If this button is clicked, add to the no count and go to the next page -->
+	</div><!--/content-->
+	
+	<div data-role="footer" data-position="fixed">
+		<p>Question 4</p>
+	</div><!-- /footer -->
+     </div><!-- /page -->
+     
+     <div data-role="page" id="pagefive">
+	<div data-role="header">
+		<h1>Results</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<button onclick="percentage()">Get results by clicking here</button> <!-- % of results-->
+		<p id="results"></p>
+	</div>	
+	       
+
+	<div data-role="footer" data-position="fixed">
+		<p>Results</p>
+	</div>
+     </div><!-- /page -->
+	
+   </body>
+</html>
